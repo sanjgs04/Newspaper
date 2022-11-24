@@ -1,0 +1,84 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+
+    <mat-icon>eco</mat-icon>  
+
+    <span>NewsPaperAd</span>
+
+  <div class="spacer"></div>
+
+  <a mat-raised-button routerLink="/homepage" style="color: blueviolet;"><mat-icon>home</mat-icon>Home</a>&nbsp;&nbsp;&nbsp;
+
+  <a mat-raised-button routerLink="/adminlogin" style="color: blueviolet;"><mat-icon>account_circle</mat-icon><mat-icon>https</mat-icon>Admin Login</a>&nbsp;&nbsp;&nbsp;
+
+  <a mat-raised-button routerLink="/login" style="color: blueviolet;"><mat-icon>perm_identity</mat-icon>User Login</a>&nbsp;&nbsp;&nbsp;
+
+  <a mat-raised-button routerLink="/signup" style="color: blueviolet;"><mat-icon>input</mat-icon>User Registration</a>&nbsp;&nbsp;&nbsp;
+
+  <a mat-raised-button routerLink="/contactus" style="color: blueviolet;"><mat-icon>info</mat-icon>Contact Us</a>
+
+  </mat-toolbar>
+<div class="outer" style="background-image: url('assets/img/Newspaper_front.png');">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white" style=" background: -webkit-linear-gradient(top,#7579ff,#b224ef);">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Customer Login</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                       <form [formGroup]="loginForm">
+                         <div class="form-group pt-3">
+                            <div class="input-field" [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">
+                                <span class="fa fa-user p-2"></span>
+                                <input formControlName="username" type="text" placeholder="Username">
+                            </div>                            
+                         </div>
+                         <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')" class="text-danger">*Username is required</small>
+                         <div class="form-group pt-3">
+                            <div class="input-field" [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">
+                                <span class="fa fa-lock p-2"></span>
+                                    <input formControlName="password" [type]="type" placeholder="Password">
+                                    <span (click)="hideshowpass()" class="fa {{eyeIcon}}"></span>                                
+                            </div>                            
+                         </div>
+                         <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')" class="text-danger">*Password is required</small>
+                       
+                         <button (click)="login()" type="submit" class="btn btn-primary btn-lock mt-4 w-100">Login</button>
+                         <div class="text-center pt-4 text-muted" style="color: #d7dbde!important;">Dont have an account? <a id="forget" routerLink="/signup" style="color:#000207;">Sign Up</a></div>
+                       </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+           <div class="card">
+            <div class="text-center">
+                <h1>Login</h1>
+                <h6>Please enter username and password</h6>
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Username</label>
+                  <input type="username" formControlName="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                  <span class="text-danger" *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">*Username Required</span>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1">
+                  <span class="text-danger" *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">*Password Required</span>
+                </div>              
+                <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
+              </form>
+              <a style="color: aliceblue; margin-top: 10px;" routerLink="/signup">New user? Click to signup!!</a>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+

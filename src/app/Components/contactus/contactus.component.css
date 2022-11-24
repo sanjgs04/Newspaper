@@ -1,0 +1,8 @@
+.spacer{
+    flex: 1 1 auto;
+    margin: 0%;
+    }
+
+.panel-body{
+    background-color: azure;
+}

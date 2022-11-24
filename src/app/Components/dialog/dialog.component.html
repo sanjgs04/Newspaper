@@ -1,0 +1,78 @@
+<h1 mat-dialog-title>Advertisement Details</h1>
+<div mat-dialog-content>
+    <form [formGroup]="advertismentForm">
+        <mat-form-field appearance="outline">
+            <mat-label>UserName</mat-label>
+            <input formControlName="UserName" matInput placeholder="UserName" />       
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Ad_Title</mat-label>
+            <input formControlName="Ad_Title" matInput placeholder="Ad_Title" />       
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Ad_Description</mat-label>
+            <textarea formControlName="Ad_Description" matInput placeholder="Ad_Description" ></textarea>       
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>PageNumber</mat-label>
+            <mat-select formControlName="PageNumber" placeholder="PageNumber">
+             <mat-option value="1.Local News">1.Local News</mat-option>
+             <mat-option value="2.State News">2.State News</mat-option>
+             <mat-option value="3.National News">3.National News</mat-option>
+             <mat-option value="4.International News">4.International News</mat-option>
+             <mat-option value="5.Entertainment News">5.Entertainment News</mat-option>
+             <mat-option value="6.Sports News">6.Sports News</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="Category" placeholder="Category">
+             <mat-option value="General">General</mat-option>
+             <mat-option value="Health">Health</mat-option>
+             <mat-option value="Vehicles">Vehicles</mat-option>
+             <mat-option value="Electronics">Electronics</mat-option>
+             <mat-option value="Shopping">Shopping</mat-option>
+             <mat-option value="Politics">Politics</mat-option>
+             <mat-option value="Entertainment">Entertainment</mat-option>             
+             <mat-option value="Sports">Sports</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!--
+         <label for=""><h1>Category</h1></label>
+           <mat-radio-group formControlName="category" class="example-radio-group">
+            <mat-radio-button class="example-radio-button" *ngFor="let category of categoryList" [value]="category">
+                {{category}}
+            </mat-radio-button>
+          </mat-radio-group> -->
+          
+          <mat-form-field appearance="outline">
+            <mat-label>DateOfPost</mat-label>
+            <input formControlName="DateOfPost" matInput [matDatepicker]="picker" [min]="todayDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>  
+
+
+          <mat-form-field appearance="outline">
+            <mat-label>Price</mat-label>
+            <mat-select formControlName="Price" placeholder="Price">
+             <mat-option value="200">10*10cm = RS.200</mat-option>
+             <mat-option value="400">20*20cm = RS.400</mat-option>
+             <mat-option value="800">30*30cm = RS.800</mat-option>
+             <mat-option value="1600">40*40cm = RS.1600</mat-option>          
+            </mat-select>
+          </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="Add_details()">{{actionBtn}}</button>
+</div>
+
+

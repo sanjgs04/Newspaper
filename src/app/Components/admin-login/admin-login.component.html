@@ -1,0 +1,55 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+
+    <mat-icon>eco</mat-icon>  
+
+    <span>NewsPaperAd</span>
+
+  <div class="spacer"></div>
+
+  <a mat-raised-button routerLink="/homepage" style="color: blueviolet;"><mat-icon>home</mat-icon>Home</a>&nbsp;&nbsp;&nbsp;
+
+  <a mat-raised-button routerLink="/adminlogin" style="color: blueviolet;"><mat-icon>account_circle</mat-icon><mat-icon>https</mat-icon>Admin Login</a>&nbsp;&nbsp;&nbsp;
+
+  <a mat-raised-button routerLink="/login" style="color: blueviolet;"><mat-icon>perm_identity</mat-icon>User Login</a>&nbsp;&nbsp;&nbsp;
+
+  <a mat-raised-button routerLink="/signup" style="color: blueviolet;"><mat-icon>input</mat-icon>User Registration</a>&nbsp;&nbsp;&nbsp;
+
+  <a mat-raised-button routerLink="/contactus" style="color: blueviolet;"><mat-icon>info</mat-icon>Contact Us</a>
+
+  </mat-toolbar>
+  <div class="outer" style="background-image: url('assets/img/Newspaper_front.png');">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white" style="    background: -webkit-linear-gradient(top,#7579ff,#b224ef);">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Admin Login</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                       <form [formGroup]="adminForm">
+                         <div class="form-group pt-3">
+                            <div class="input-field" [class.error]="adminForm.controls['adminId'].dirty && adminForm.hasError('required','adminId')">
+                                <span class="fa fa-user p-2"></span>
+                                <input formControlName="adminId" type="text" placeholder="adminId">
+                            </div>                            
+                         </div>
+                         <small *ngIf="adminForm.controls['adminId'].dirty && adminForm.hasError('required','adminId')" class="text-danger">*AdminId is required</small>
+                         <div class="form-group pt-3">
+                            <div class="input-field" [class.error]="adminForm.controls['password'].dirty && adminForm.hasError('required','password')">
+                                <span class="fa fa-lock p-2"></span>
+                                    <input formControlName="password" [type]="type" placeholder="Password">
+                                    <span (click)="hideshowpass()" class="fa {{eyeIcon}}"></span>                                
+                            </div>                            
+                         </div>
+                         <small *ngIf="adminForm.controls['password'].dirty && adminForm.hasError('required','password')" class="text-danger">*Password is required</small>
+                       
+                         <button (click)="onAdminlogin()" type="submit" class="btn btn-primary btn-lock mt-4 w-100" >Login</button>
+                        
+                       </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

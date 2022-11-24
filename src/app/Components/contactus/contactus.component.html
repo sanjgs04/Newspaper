@@ -1,0 +1,80 @@
+<div style="background: -webkit-linear-gradient(top,#8356f5,#6fd0e1)">
+<mat-toolbar color="primary" class="mat-elevation-z8">
+
+  <mat-icon>eco</mat-icon>  
+
+  <span>NewsPaperAd</span>
+
+<div class="spacer"></div>
+
+<a mat-raised-button routerLink="/homepage" style="color: blueviolet;"><mat-icon>home</mat-icon>Home</a>&nbsp;&nbsp;&nbsp;
+
+<a mat-raised-button routerLink="/adminlogin" style="color: blueviolet;"><mat-icon>account_circle</mat-icon><mat-icon>https</mat-icon>Admin Login</a>&nbsp;&nbsp;&nbsp;
+
+<a mat-raised-button routerLink="/login" style="color: blueviolet;"><mat-icon>perm_identity</mat-icon>User Login</a>&nbsp;&nbsp;&nbsp;
+
+<a mat-raised-button routerLink="/signup" style="color: blueviolet;"><mat-icon>input</mat-icon>User Registration</a>&nbsp;&nbsp;&nbsp;
+
+<a mat-raised-button routerLink="/contactus" style="color: blueviolet;"><mat-icon>info</mat-icon>Contact Us</a>
+
+</mat-toolbar>
+
+<div class="container">
+  <div class="row">
+      <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+          <div class="panel border bg-white" style="background: -webkit-linear-gradient(top,#ffffff,#f0f0f0);margin-bottom: 15px;">
+              <div class="panel-heading">
+                  <h3 class="pt-3 font-weight-bold" style="font-size: 23px;color:rgb(17, 17, 17);">Feedback Form</h3>
+              </div>
+
+              <div class="panel-body p-3">
+                  <form [formGroup]="feedbackFrom">
+
+                      <div class="form-group pt-3">
+                          <div class="input-field"
+                              [class.error]="feedbackFrom.controls['Name'].dirty && feedbackFrom.hasError('required','Name')">
+                              <input formControlName="Name" type="text" placeholder="Name">
+                          </div>
+                      </div>
+                      <small
+                          *ngIf="feedbackFrom.controls['Name'].dirty && feedbackFrom.hasError('required','Name')"
+                          class="text-danger">*Name is required</small>
+                      
+                          <div class="form-group pt-3">
+                            <div class="input-field"
+                                [class.error]="feedbackFrom.controls['Email'].dirty && feedbackFrom.hasError('required','Email')">
+                                <input formControlName="Email" type="text" placeholder="Email">
+                            </div>
+                        </div>
+                        <small
+                            *ngIf="feedbackFrom.controls['Email'].dirty && feedbackFrom.hasError('required','Email')"
+                            class="text-danger">*Email is required</small>
+
+                            <div class="form-group pt-3">
+                              <div class="input-field"
+                                  [class.error]="feedbackFrom.controls['Subject'].dirty && feedbackFrom.hasError('required','Subject')">
+                                  <input formControlName="Subject" type="text" placeholder="Subject">
+                              </div>
+                          </div>
+                          <small
+                              *ngIf="feedbackFrom.controls['Subject'].dirty && feedbackFrom.hasError('required','Subject')"
+                              class="text-danger">*Subject is required</small>   
+
+                              <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="feedbackFrom.controls['Message'].dirty && feedbackFrom.hasError('required','Message')">
+                                    <input formControlName="Message" type="text" placeholder="Message">
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="feedbackFrom.controls['Message'].dirty && feedbackFrom.hasError('required','Message')"
+                                class="text-danger">*Message is required</small>   
+                      
+                      <button (click)="postFeedbacks()" type="submit" class="btn btn-primary btn-lock mt-4 w-100">Submit Feedback</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,138 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+
+    <mat-icon>eco</mat-icon>
+
+    <span>NewsPaperAd</span>
+
+    <div class="spacer"></div>
+
+    <a mat-raised-button routerLink="/homepage" style="color: blueviolet;">
+        <mat-icon>home</mat-icon>Home
+    </a>&nbsp;&nbsp;&nbsp;
+
+    <a mat-raised-button routerLink="/adminlogin" style="color: blueviolet;">
+        <mat-icon>account_circle</mat-icon>
+        <mat-icon>https</mat-icon>Admin Login
+    </a>&nbsp;&nbsp;&nbsp;
+
+    <a mat-raised-button routerLink="/login" style="color: blueviolet;">
+        <mat-icon>perm_identity</mat-icon>User Login
+    </a>&nbsp;&nbsp;&nbsp;
+
+    <a mat-raised-button routerLink="/signup" style="color: blueviolet;">
+        <mat-icon>input</mat-icon>User Registration
+    </a>&nbsp;&nbsp;&nbsp;
+
+    <a mat-raised-button routerLink="/contactus" style="color: blueviolet;">
+        <mat-icon>info</mat-icon>Contact Us
+    </a>
+
+</mat-toolbar>
+
+<script>  
+    function matchPassword() {  
+      var pw1 = document.getElementById("password");  
+      var pw2 = document.getElementById("confirmpassword");  
+      if(pw1 != pw2)  
+      {  
+        alert("Passwords did not match");  
+      } else {  
+        alert("Password created successfully");  
+      }  
+    }  
+    </script>
+    
+<div class="outer" style="background-image: url('assets/img/registration.png'); background-size: cover;height:fit-content;">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white" style="background: -webkit-linear-gradient(top,#7579ff,#b224ef);margin-bottom: 15px;">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold" style="font-size: 23px;color:#fff;">Customer Sign Up</h3>
+                    </div>
+
+                    <div class="panel-body p-3">
+                        <form [formGroup]="signUpFrom">
+
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="signUpFrom.controls['firstName'].dirty && signUpFrom.hasError('required','firstName')">
+                                    <span class="fa fa-user p-2"> </span>
+                                    <input formControlName="firstName" type="text" placeholder="First Name">
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpFrom.controls['firstName'].dirty && signUpFrom.hasError('required','firstName')"
+                                class="text-danger">*Firstname is required</small>
+
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="signUpFrom.controls['lastName'].dirty && signUpFrom.hasError('required','lastName')">
+                                    <span class="fa fa-user p-2"> </span>
+                                    <input formControlName="lastName" type="text" placeholder="Last Name">
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpFrom.controls['lastName'].dirty && signUpFrom.hasError('required','lastName')"
+                                class="text-danger">*Lastname is required</small>
+
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="signUpFrom.controls['username'].dirty && signUpFrom.hasError('required','username')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="username" type="text" placeholder="Username">
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpFrom.controls['username'].dirty && signUpFrom.hasError('required','username')"
+                                class="text-danger">*Username is required</small>
+
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="signUpFrom.controls['emailId'].dirty && signUpFrom.hasError('required','emailId')">
+                                    <span class="fa fa-user p-2"> </span>
+                                    <input formControlName="emailId" type="text" placeholder="Email Id">
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpFrom.controls['emailId'].dirty && signUpFrom.hasError('required','emailId')"
+                                class="text-danger">*EmailId is required</small>
+
+
+
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="signUpFrom.controls['password'].dirty && signUpFrom.hasError('required','password')">
+                                    <span class="fa fa-lock p-2"> </span>
+                                    <input formControlName="password" [type]="type" placeholder="Password">
+                                    <span (click)="hideshowpass()" class="fa {{eyeIcon}}"></span>
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpFrom.controls['password'].dirty && signUpFrom.hasError('required','password')"
+                                class="text-danger">*Password is required</small>
+
+                                <div class="form-group pt-3">
+                                    <div class="input-field" [class.error]="signUpFrom.controls['confirmPassword'].dirty && signUpFrom.hasError('required','confirmPassword')">
+                                        <span class="fa fa-lock p-2"> </span>
+                                            <input formControlName="confirmPassword" [type]="type" placeholder="Confirm Password">
+                                            <span (click)="hideshowpass()" class="fa {{eyeIcon}}"></span>
+                                            <div *ngIf="signUpFrom.errors?.['passwordMismatcgError'] && getControl('confirmPassword')?.touched">
+                                                <small class="text-danger">Password mismatched</small> 
+                                                <span>
+                                                    <input formControlName="confirmPassword" [type]="type" placeholder="Confirm Password">
+                                                </span>                   
+                                            </div>                                
+                                    </div>              
+                                </div> 
+                            <button (click)="onSingup()" type="submit" class="btn btn-primary btn-lock mt-4 w-100">Sign
+                                Up</button>
+                            <div class="text-center pt-4 text-muted" style="color: #d7dbde!important;">Already have
+                                an account? <a id="forget" routerLink="/login" style="color:#000207;">Login</a></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

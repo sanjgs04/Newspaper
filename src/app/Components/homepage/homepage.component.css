@@ -1,0 +1,22 @@
+.spacer{
+    flex: 1 1 auto;
+    margin: 0%;
+    }
+    .img1{
+        background-size: cover;
+        background-repeat: no-repeat;   
+        height:90vh;
+        width: 224vh;   
+    }
+    .Newspaper_front{
+        background-size: cover;
+        background-repeat: no-repeat;   
+        height:90vh;
+        width: 224vh;   
+    }
+    .home5{
+        background-size: cover;
+        background-repeat: no-repeat;   
+        height:90vh;
+        width: 224vh;   
+    }

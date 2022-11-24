@@ -1,0 +1,163 @@
+
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="stylesheet" href="payment.component.css" />
+    </head>
+    <body>
+      <div
+        *ngIf=""
+        class="alert alert-success alert-dismissible fade show"
+        role="alert"
+      >
+        <strong>Success !</strong> You have Registered...
+        <button
+          onclick="CloseAlert()"
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>   
+       <div class="container">
+        <div class="title">Payment</div>
+        <div class="content">
+          <form [formGroup]="registrationForm">
+            <div class="user-details">
+              <div class="input-box">
+                <span class="details">Name on Card</span>
+                <input
+                  type="text"
+                  placeholder="Enter Name on the card"
+                  id="firstName"
+                  formControlName="card_Name"
+                />
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    registrationForm.get('card_Name').invalid &&
+                    registrationForm.get('card_Name').touched
+                  "
+                  >Card Name is required</span
+                ><br />
+              </div>
+              <div class="input-box">
+                <span class="details">Card Number</span>
+                <input
+                  type="text"
+                  placeholder="Enter Card Number"
+                  id="lastName"
+                  formControlName="card_Number"
+                />
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    registrationForm.get('card_Number').invalid &&
+                    registrationForm.get('card_Number').touched
+                  "
+                  >Invalid Card Number</span
+                >
+              </div>
+              <div class="input-box">
+                <span class="details">Mobile number</span>
+                <input
+                  type="text"
+                  placeholder="Enter Your Mobile Number"
+                  id="mobile"
+                  formControlName="mobile"
+                />
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    registrationForm.get('mobile').invalid &&
+                    registrationForm.get('mobile').touched
+                  "
+                  >Invalid Mobile number</span
+                >
+              </div>
+              <div class="input-box">
+                <span class="details">Exp Month</span>
+                <input
+                  type="text"
+                  placeholder="Exp Month"
+                  id="email"
+                  formControlName="ex_Month"
+                />
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    registrationForm.get('ex_Month').invalid &&
+                    registrationForm.get('ex_Month').touched
+                  "
+                  >Invalid Expiry Month</span
+                >
+              </div>
+              <div class="input-box">
+                <span class="details">Exp year</span>
+                <input
+                  type="text"
+                  placeholder="Exp Year"
+                  id="password"
+                  formControlName="ex_Year"
+                />
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    registrationForm.get('ex_Year').invalid &&
+                    registrationForm.get('ex_Year').touched
+                  "
+                  >Invalid Expiry Year</span
+                >
+              </div>
+              <div class="input-box">
+                <span class="details">CVV </span>
+                <input
+                  type="password"
+                  placeholder="CVV"
+                  id="address"
+                  formControlName="cvv"
+                />
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    registrationForm.get('cvv').invalid &&
+                    registrationForm.get('cvv').touched
+                  "
+                  >Invalid CVV</span
+                >
+              </div>            
+            </div>
+            <div>Amount = Rs.{{Price}}
+            <mat-form-field appearance="outline">
+              <mat-label>Price</mat-label>
+              <mat-select formControlName="Price" placeholder="Price">
+               <mat-option value="200">10*10cm = RS.200</mat-option>
+               <mat-option value="400">20*20cm = RS.400</mat-option>
+               <mat-option value="800">30*30cm = RS.800</mat-option>
+               <mat-option value="1600">40*40cm = RS.1600</mat-option>          
+              </mat-select>
+            </mat-form-field>
+          </div>
+            <div class="button"> 
+              
+        <button routerLink="/MyOrder" style="background: linear-gradient(-135deg, #71b7e6, #0c09cd); "   type="submit" (click)="payment()" [disabled]="registrationForm.invalid" class="btn btn-primary">
+                Pay
+              </button> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+     
+       <button style="background: linear-gradient(-135deg, #71b7e6, #3b17d9); "   type="submit" (click)="handleClear()"  class="btn btn-primary">
+                Clear
+              </button>                              
+            </div>
+          </form>
+        </div>
+      </div>
+    </body>
+  </html> 
+   
+  
+  
+  
